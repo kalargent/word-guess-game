@@ -49,6 +49,7 @@ var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster st
 // DEFINE INPUTS - A THRU Z 
 var letters  = ["a", "b" , "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; 
 
+console.log ("A");
 
 // ARRAYS TO STORE GUESSES, UNGUESSED WORDS (SPACES), LETTER AND SPACE DISPLAY
 
@@ -59,27 +60,29 @@ var initialGuessNumber = [];
 
 // DECLARE VARIABLES: WIN/LOSE, # OF GUESSES ALLOWED (VARIABLE BASED ON WORD LENGTH), # OF GUESSES REMAINING (RELATED TO #GUESSES TOTAL), LETTER GUESSED (INCREMENTALLY DISPLAY)
 var totalWins = []; 
-var currentWord = [];
+// var currentWord = [];
 var remainingGuessCount =[];
 var initialGuessNumber = [];
 var usedLetters = []; 
 
+console.log ("B");
 
 // CHOOSE A RANDOM WORD FROM THE LIB OF WORDS
-window.onload = function initializeGame () {
-    currentWord = wordLib[Math.floor(Math.random() * wordLib.length)];
-    console.log (currentWord); 
+window.onkeypress = function initializeGame () {
+    currentWord.textContent = wordLib[Math.floor(Math.random() * wordLib.length)];
+    console.log (currentWord.textContent); 
+    console.log ("C");
 }
 
 // DISPLAY CURRENT WORD IN UI
-currentWord.textContent = currentWord;
+// currentWord.textContent = currentWord;
 
 // DISPLAY WORD AS SPACES 
 
 // TAKE IN USER GUESS, SKIP IF IT'S A LETTER USER ALREADY GUESSED 
 
 //START OVER WITH NEW WORD 
-
+console.log ("D");
 </script>
 
 </body>
