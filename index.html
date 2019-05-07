@@ -24,6 +24,7 @@
         <p id="totalWins"></p>
         <h3>Current Word</h3>
         <p id="currentWord"></p>
+        <p id="spaces"></p>
         <h3>Remaining Guesses</h3>
         <p id="remainingGuessCount"></p>
         <h3> Used Letters</h3>
@@ -39,9 +40,10 @@ var totalWins = document.getElementById("totalWins");
 var currentWord = document.getElementById("currentWord"); 
 var remainingGuessCount =document.getElementById("remainingGuessCount"); 
 var usedLetters = document.getElementById("usedLetters");
+var spaces = document.getElementById("spaces");
 
 // DEFINE WORD LIB - WHICH WORDS ARE INCLUDED, BASED ON THEME 
-var wordLib = ["fetch", "gruel", "plastics", "toaster strudel", "pusher", "burn book", "cool mom", "mathlete"]; 
+var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster strudel", "pusher", "burn book", "cool mom", "mathlete"]; 
 
 
 // DEFINE INPUTS - A THRU Z 
@@ -62,17 +64,14 @@ var remainingGuessCount =[];
 var initialGuessNumber = [];
 var usedLetters = []; 
 
+
 // CHOOSE A RANDOM WORD FROM THE LIB OF WORDS
-
-
 window.onload = function initializeGame () {
     currentWord = wordLib[Math.floor(Math.random() * wordLib.length)];
-
-    console.log (currentWord);
-    return currentWord; 
+    console.log (currentWord); 
 }
 
-// DISPLAY CURRENT WORD
+// DISPLAY CURRENT WORD IN UI
 currentWord.textContent = currentWord;
 
 // DISPLAY WORD AS SPACES 
