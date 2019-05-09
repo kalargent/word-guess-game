@@ -85,17 +85,18 @@ window.onkeypress = function initializeGame (event) {
          
     }
     else {
-        // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORK
+        // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORD
         for (var i = 0; i < secretWord.length; i++) {
+            // DISPLAYS SECRET WORD 
             if (secretWord[i] === String.fromCharCode (event.charCode)) {
                 guessedWord[i] = String.fromCharCode (event.charCode);
             }   
         }
     }
-    //JOINS THE UNDERSCORES WITH A SPACE IN BETWEEN
+    //JOINS THE UNDERSCORES FOR THE SECRET WORD WITH A SPACE IN BETWEEN
     currentWord.innerHTML = guessedWord.join(" ");  
 
-    //LOGS STRING TO CONSOLE
+    //LOGS STRING TO CONSOLE FOR CHECKING
     console.log (String.fromCharCode (event.charCode));
 }
 
