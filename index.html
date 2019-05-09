@@ -46,55 +46,58 @@ var spaces = document.getElementById("spaces");
 var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster strudel", "pusher", "burn book", "cool mom", "mathlete"]; 
 
 
-// DEFINE INPUTS - A THRU Z 
-var letters  = ["a", "b" , "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; 
+
+// // ARRAYS TO STORE GUESSES, UNGUESSED WORDS (SPACES), LETTER AND SPACE DISPLAY
+
+// var usedLetters = []; 
+// var remainingGuessCount =[0];
+// var totalWins = [0];
+// var initialGuessNumber = []; 
 
 
+// // DECLARE VARIABLES: WIN/LOSE, # OF GUESSES ALLOWED (VARIABLE BASED ON WORD LENGTH), # OF GUESSES REMAINING (RELATED TO #GUESSES TOTAL), LETTER GUESSED (INCREMENTALLY DISPLAY)
+// var totalWins = []; 
+// // var currentWord = [];
+// var remainingGuessCount =[];
+// var initialGuessNumber = [];
+// var usedLetters = []; 
 
-// ARRAYS TO STORE GUESSES, UNGUESSED WORDS (SPACES), LETTER AND SPACE DISPLAY
-
-var usedLetters = []; 
-var remainingGuessCount =[0];
-var totalWins = [0];
-var initialGuessNumber = []; 
-
-
-// DECLARE VARIABLES: WIN/LOSE, # OF GUESSES ALLOWED (VARIABLE BASED ON WORD LENGTH), # OF GUESSES REMAINING (RELATED TO #GUESSES TOTAL), LETTER GUESSED (INCREMENTALLY DISPLAY)
-var totalWins = []; 
-// var currentWord = [];
-var remainingGuessCount =[];
-var initialGuessNumber = [];
-var usedLetters = []; 
-
-// VARIABLE TO TRACK THE HIDDEN WORD 
+// (COMPLETE)VARIABLE TO TRACK THE HIDDEN WORD 
 var secretWord = "";
+var guessedWord = [];
 
-// CHOOSE A RANDOM WORD FROM THE LIB OF WORDS AND WRITE TO CONSOLE AND TO THE SCREEN
+// (COMPLETE) CHOOSE A RANDOM WORD FROM THE LIB OF WORDS AND DISPLAY ON THE SCREEN WITH UNDERSCORES
 window.onkeypress = function initializeGame (event) {
     if (secretWord === "") {
+        // GENERATES SECRET WORD
         secretWord = wordLib[Math.floor(Math.random() * wordLib.length)];
+        // PRINTS SECRET WORD TO CONSOLE
         console.log(secretWord);
-        var guessedWord = []; 
+        // CREATED GUESSED WORD VAR, AND GETS AN UNDERSCORE FOR EACH LETTER IN THE SECRET WORD
         for (var i = 0; i < secretWord.length; i++) {
-            guessedWord.push("_");
+            if (secretWord[i] == " ") {
+                guessedWord.push("&nbsp;");    
+            }
+            else {
+                guessedWord.push("_");
+            }
         }
-        currentWord.innerHTML = guessedWord.join(" ");  
-
-        return;  
+         
     }
+    else {
+        // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORK
+        for (var i = 0; i < secretWord.length; i++) {
+            if (secretWord[i] === String.fromCharCode (event.charCode)) {
+                guessedWord[i] = String.fromCharCode (event.charCode);
+            }   
+        }
+    }
+    //JOINS THE UNDERSCORES WITH A SPACE IN BETWEEN
+    currentWord.innerHTML = guessedWord.join(" ");  
 
+    //LOGS STRING TO CONSOLE
     console.log (String.fromCharCode (event.charCode));
 }
-
-
-
-// DISPLAY THE CHOSEN WORD AS AN ARRAY OF UNDERSCORES 
-
-// THIS IS PROBABLY A LOOP 
-// WHEN THE GAME IS INITIALIZED WITH A KEYPRESS
-// COMPARE THE KEY PRESSED TO THE WORD 
-// IF IT IS IN THE WORD, DISPLAY THE LETTER IN PLACE OF THE UNDERSCORE
-// ELSE DISPLAY THE LETTER IN THE USED LETTERS SECTION OF THE SCREEN 
 
 </script>
 
