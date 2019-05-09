@@ -49,7 +49,7 @@ var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster st
 // DEFINE INPUTS - A THRU Z 
 var letters  = ["a", "b" , "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; 
 
-console.log ("A");
+
 
 // ARRAYS TO STORE GUESSES, UNGUESSED WORDS (SPACES), LETTER AND SPACE DISPLAY
 
@@ -58,6 +58,7 @@ var remainingGuessCount =[0];
 var totalWins = [0];
 var initialGuessNumber = []; 
 
+
 // DECLARE VARIABLES: WIN/LOSE, # OF GUESSES ALLOWED (VARIABLE BASED ON WORD LENGTH), # OF GUESSES REMAINING (RELATED TO #GUESSES TOTAL), LETTER GUESSED (INCREMENTALLY DISPLAY)
 var totalWins = []; 
 // var currentWord = [];
@@ -65,24 +66,36 @@ var remainingGuessCount =[];
 var initialGuessNumber = [];
 var usedLetters = []; 
 
-console.log ("B");
+// VARIABLE TO TRACK THE HIDDEN WORD 
+var secretWord = "";
 
-// CHOOSE A RANDOM WORD FROM THE LIB OF WORDS
+// CHOOSE A RANDOM WORD FROM THE LIB OF WORDS AND WRITE TO CONSOLE AND TO THE SCREEN
 window.onkeypress = function initializeGame (event) {
-    currentWord.textContent = wordLib[Math.floor(Math.random() * wordLib.length)];
-    console.log (currentWord.textContent); 
+    if (secretWord === "") {
+        secretWord = wordLib[Math.floor(Math.random() * wordLib.length)];
+        console.log(secretWord);
+        var guessedWord = []; 
+        for (var i = 0; i < secretWord.length; i++) {
+            guessedWord.push("_");
+        }
+        currentWord.innerHTML = guessedWord.join(" ");  
+
+        return;  
+    }
+
     console.log (String.fromCharCode (event.charCode));
 }
 
-// DISPLAY CURRENT WORD IN UI
-// currentWord.textContent = currentWord;
 
-// DISPLAY WORD AS SPACES 
 
-// TAKE IN USER GUESS, SKIP IF IT'S A LETTER USER ALREADY GUESSED 
+// DISPLAY THE CHOSEN WORD AS AN ARRAY OF UNDERSCORES 
 
-//START OVER WITH NEW WORD 
-console.log ("D");
+// THIS IS PROBABLY A LOOP 
+// WHEN THE GAME IS INITIALIZED WITH A KEYPRESS
+// COMPARE THE KEY PRESSED TO THE WORD 
+// IF IT IS IN THE WORD, DISPLAY THE LETTER IN PLACE OF THE UNDERSCORE
+// ELSE DISPLAY THE LETTER IN THE USED LETTERS SECTION OF THE SCREEN 
+
 </script>
 
 </body>
