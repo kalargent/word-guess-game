@@ -26,7 +26,7 @@
         <p id="currentWord"></p>
         <p id="spaces"></p>
         <h3>Remaining Guesses</h3>
-        <p id="remainingGuessCount"></p>
+        <p id = "guessCounter"></p>
         <h3> Used Letters</h3>
         <p id = "usedLetters"></p>
     </div>
@@ -38,36 +38,29 @@
 var directionsText = document.getElementById("directions-text");
 var totalWins = document.getElementById("totalWins"); 
 var currentWord = document.getElementById("currentWord"); 
-var remainingGuessCount =document.getElementById("remainingGuessCount"); 
-var usedLetters = document.getElementById("usedLetters");
+var remainingGuesses = document.getElementById("guessCounter"); 
+var wrongLetters = document.getElementById("usedLetters");
 var spaces = document.getElementById("spaces");
 
 // DEFINE WORD LIB - WHICH WORDS ARE INCLUDED, BASED ON THEME 
 var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster strudel", "pusher", "burn book", "cool mom", "mathlete"]; 
 
-
-
-// // ARRAYS TO STORE GUESSES, UNGUESSED WORDS (SPACES), LETTER AND SPACE DISPLAY
-
-// var usedLetters = []; 
-// var remainingGuessCount =[0];
-// var totalWins = [0];
-// var initialGuessNumber = []; 
-
-
-// // DECLARE VARIABLES: WIN/LOSE, # OF GUESSES ALLOWED (VARIABLE BASED ON WORD LENGTH), # OF GUESSES REMAINING (RELATED TO #GUESSES TOTAL), LETTER GUESSED (INCREMENTALLY DISPLAY)
-// var totalWins = []; 
-// // var currentWord = [];
-// var remainingGuessCount =[];
-// var initialGuessNumber = [];
-// var usedLetters = []; 
-
 // (COMPLETE)VARIABLE TO TRACK THE HIDDEN WORD 
 var secretWord = "";
 var guessedWord = [];
+var guessCounter = 10; 
+var usedLetters = []; 
+
 
 // (COMPLETE) CHOOSE A RANDOM WORD FROM THE LIB OF WORDS AND DISPLAY ON THE SCREEN WITH UNDERSCORES
 window.onkeypress = function initializeGame (event) {
+    
+    // PRINTS GUESSES TO CONSOLE (AND EVENTUALLY TO SCREEN)
+    // remainingGuesses.textcontent = guessCounter;
+    remainingGuesses.innerHTML=guessCounter;
+
+    console.log("guessCounter is" + guessCounter);
+
     if (secretWord === "") {
         // GENERATES SECRET WORD
         secretWord = wordLib[Math.floor(Math.random() * wordLib.length)];
@@ -82,22 +75,34 @@ window.onkeypress = function initializeGame (event) {
                 guessedWord.push("_");
             }
         }
-       //GENERATE GUESS COUNTER BASED ON THE LENGTH OF THE WORD - THIS WILL BE AN ARRAY 
-       // DETERMINE NUMBER OF GUESSES 
-       // POPULATE GUESS COUNTER ARRAY WITH GUESSES
-
     }
     else {
+        //GENERATE GUESS COUNTER BASED ON THE LENGTH OF THE WORD - THIS WILL BE AN ARRAY 
+       // DETERMINE NUMBER OF GUESSES 
+       // POPULATE GUESS COUNTER ARRAY WITH GUESSES
+        guessCounter--;
+        // ASK TA WHEHN/WHY TO USE THIS. AND WHY IT IS INCLUDED IN THIS EXAMPLE
+        // document.querySelector("#guessCounter").innerHTML=this.guessCounter;
+        remainingGuesses.innerHTML=guessCounter;
+        // remainingGuesses.textcontent = guessCounter;
+        console.log("guessCounter is" + guessCounter);  
         // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORD
+        // MISSED LETTERS UPDATE USED LETTER ARRAY 
+        if (!secretWord.includes(String.fromCharCode (event.charCode))) {
+            usedLetters.push(String.fromCharCode (event.charCode));
+            wrongLetters.innerHTML=usedLetters;
+        }
+
         for (var i = 0; i < secretWord.length; i++) {
             // DISPLAYS LETTER IN SECRET WORD 
             if (secretWord[i] === String.fromCharCode (event.charCode)) {
                 guessedWord[i] = String.fromCharCode (event.charCode);
-                //DECREMENT THE GUESS COUNTER BY ONE 
             } 
+
+
             // NEED AN ELSE STATEMENT FOR WHEN THE LETTER DOES NOT MATCH 
             // DETERMINE LETTER DOES NOT MATCH ANY OF THE INDICES IN SECRET WORD 
-            // DECREMENT THE GUESS COUNTER BY ONE 
+
             // DISPLAY LETTER IN USED LETTERS - THIS WILL BE AN EMPTY ARRAY THAT I FILL IN
 
             // IGNORE THE KEYSTROKE IF THE SELECTED LETTER WAS ALREADY USED IN THE SECRET WORD OR USED LETTER LIST - DO NOT DECREMENT GUESS COUNTER IN THIS CASE 
@@ -110,7 +115,7 @@ window.onkeypress = function initializeGame (event) {
     //LOGS STRING TO CONSOLE FOR CHECKING
     console.log (String.fromCharCode (event.charCode));
 
-    // WIN OR LOSE SCENARIOS 
+    // WIN OR LOSE SCENARIOS (TWO SEPARATE FUNCTIONS)
     // IF THE SECRET WORD IS FILLED IN COMPLETELY 
     // THE USER WINS 
     // INCREMENT WIN COUNTER - WHICH IS GOING TO BE A VARIABLE 
