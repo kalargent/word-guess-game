@@ -93,7 +93,7 @@ window.onkeypress = function initializeGame (event) {
 
 
             else if (guessCounter === 0) {
-                alert ("Sorry! You ran out of guesses. The secret word was " + secretWord); 
+                alert  ("Sorry! You ran out of guesses. The secret word was " + secretWord); 
                 console.log ("they ran out of turns");
                 usedLetters = [];
                 secretWord = "";
