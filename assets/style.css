@@ -4,6 +4,7 @@ body {
 
 .jumbotron {
     background-image: url('../assets/big-meanies.jpeg'); 
+    background-size: cover; 
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black; 
     height: 400px; 
@@ -12,13 +13,18 @@ body {
 .jumboContent { 
     height: 200px; 
     margin-top: 200px; 
+    margin-bottom: 0; 
     color: #70043e; 
-    text-align: right; 
+    text-align: center; 
     text-shadow:
 		-2px -2px 0 #fff,
 		2px -2px 0 #fff,
 		-2px 2px 0 #fff,
 		2px 2px 0 #fff;
+}
+
+.row {
+    padding: 10px; 
 }
 
 h2 {
@@ -30,6 +36,14 @@ h2 {
     font-weight: 700; 
 }
 
+.dynamic { 
+    color: darkgray; 
+}
+
+.dynamic p { 
+    margin-bottom: 0; 
+}
+
 .second-text {
     color: black; 
     font-weight: 700; 
@@ -39,7 +53,8 @@ h2 {
     background-color: whitesmoke;
 }
 
-.column {
-    padding: 10px; 
+.alert { 
+    
 }
+
 
