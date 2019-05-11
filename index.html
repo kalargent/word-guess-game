@@ -32,10 +32,9 @@
     </div>
 
 
-
 <script type="text/javascript">
 // REFERENCE THE VARIABLES ABOVE USING document.getVariableById SO THAT THEY DISPLAY ON THE UI
-var directionsText = document.getElementById("directions-text");
+var directionsText = document.getElementById("directionsText");
 var totalWins = document.getElementById("totalWins"); 
 var currentWord = document.getElementById("currentWord"); 
 var remainingGuesses = document.getElementById("guessCounter"); 
@@ -66,6 +65,7 @@ window.onkeypress = function initializeGame (event) {
         secretWord = wordLib[Math.floor(Math.random() * wordLib.length)];
         guessCounter = secretWord.length + 2;
         console.log (guessCounter);
+        directionsText.innerHTML =(""); 
         // PRINTS SECRET WORD TO CONSOLE
         console.log(secretWord);
         // CREATED GUESSED WORD VAR, AND GETS AN UNDERSCORE FOR EACH LETTER IN THE SECRET WORD
