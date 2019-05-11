@@ -55,6 +55,7 @@ window.onkeypress = function initializeGame (event) {
         // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORD
         // MISSED LETTERS UPDATE USED LETTER ARRAY 
         if (!secretWord.includes(String.fromCharCode (event.charCode))) {
+            
             usedLetters.push(String.fromCharCode (event.charCode));
         }
 
@@ -65,12 +66,7 @@ window.onkeypress = function initializeGame (event) {
             } 
 
 
-            // NEED AN ELSE STATEMENT FOR WHEN THE LETTER DOES NOT MATCH 
-            // DETERMINE LETTER DOES NOT MATCH ANY OF THE INDICES IN SECRET WORD 
-
-            // DISPLAY LETTER IN USED LETTERS - THIS WILL BE AN EMPTY ARRAY THAT I FILL IN
-
-            // IGNORE THE KEYSTROKE IF THE SELECTED LETTER WAS ALREADY USED IN THE SECRET WORD OR USED LETTER LIST - DO NOT DECREMENT GUESS COUNTER IN THIS CASE 
+            
 
         }
         // WIN OR LOSE SCENARIOS (TWO SEPARATE FUNCTIONS)
