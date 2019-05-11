@@ -30,7 +30,7 @@ window.onkeypress = function initializeGame (event) {
         secretWord = wordLib[Math.floor(Math.random() * wordLib.length)];
         guessCounter = secretWord.length + 2;
         console.log (guessCounter);
-        directionsText.innerHTML =(""); 
+        directionsText.style.display =("none"); 
         // PRINTS SECRET WORD TO CONSOLE
         console.log(secretWord);
         // CREATED GUESSED WORD VAR, AND GETS AN UNDERSCORE FOR EACH LETTER IN THE SECRET WORD
