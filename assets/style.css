@@ -1,0 +1,21 @@
+.jumbotron {
+    background-image: url('../assets/big-meanies.jpeg'); 
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+    align-content: bottom; 
+    color: black; 
+    height: 400px; 
+}  
+
+h2 {
+    color: #d88896; 
+}
+
+.text {
+    color: #d88896; 
+    font-weight: 700; 
+}
+
+.second-text {
+    color: black; 
+    font-weight: 700; 
+}
