@@ -9,7 +9,7 @@ var spaces = document.getElementById("spaces");
 // DEFINE WORD LIB - WHICH WORDS ARE INCLUDED, BASED ON THEME 
 var wordLib = ["wednesday", "kalteen", "fetch", "gruel", "plastics", "toaster strudel", "pusher", "burn book", "cool mom", "mathlete"]; 
 
-// (COMPLETE)VARIABLE TO TRACK THE HIDDEN WORD 
+// VARIABLES 
 var secretWord = "";
 var guessedWord = [ ];
 var guessCounter = 0; 
@@ -17,13 +17,11 @@ var usedLetters = [];
 var winCounter = 0; 
 
 
-// (COMPLETE) CHOOSE A RANDOM WORD FROM THE LIB OF WORDS AND DISPLAY ON THE SCREEN WITH UNDERSCORES
+// START GAME
 window.onkeypress = function initializeGame (event) {
-    
-    // PRINTS GUESSES TO CONSOLE (AND EVENTUALLY TO SCREEN)
-    
 
     console.log("guessCounter is" + guessCounter);
+
 
     if (secretWord === "") {
         // GENERATES SECRET WORD
