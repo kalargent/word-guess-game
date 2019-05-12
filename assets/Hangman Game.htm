@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///Users/klargent/Documents/class_activities/word-guess-game/index.html -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="./Hangman Game_files/bootstrap.min.css">
+  <link rel="stylesheet" href="file:///Users/klargent/Documents/class_activities/word-guess-game/assets/style.css">
+  <!-- MAKE SURE YOU LINK THE JS STYLESHEET  AND THE CSS  -->
+</head>
+
+<body>
+
+        <div class="jumbotron">
+            <div class="jumboContent"> 
+                <h1 class="display-4">Guess the Secret Word</h1>
+                <p class="lead">Try to guess words from the popular movie "Mean Girls".</p>
+                <p></p>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="row" id="directionsText">
+            <h2>Press any key to start playing!</h2><h2>  
+        </h2></div>
+        <div class="row border">
+            <div class="col-md text">
+                Total Wins 
+            </div> 
+                <div class="col-md dynamic">
+                <p id="totalWins"></p>  
+                </div>        
+        </div> 
+        <div class="row border">
+            <div class="col-md text">
+                Current Word
+            </div>
+                <div class="col-md dynamic">
+                <p id="currentWord"></p>
+                <p id="spaces"></p>
+            </div>
+        </div>
+        <div class="row border">
+            <div class="col-md text">
+                Remaining Guesses
+            </div>
+            <div class="col-md dynamic">
+                <p id="guessCounter"></p>
+            </div>
+        </div>
+        <div class="row border">
+            <div class="col-md text">
+                Used Letters
+            </div>
+            <div class="col-md dynamic">
+                <p id="usedLetters"></p>
+            </div>
+        </div>
+    </div>
+
+
+<script src="file:///Users/klargent/Documents/class_activities/word-guess-game/assets/wordgame.js"></script>
+
+
+</body></html>

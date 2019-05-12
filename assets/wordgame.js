@@ -47,15 +47,23 @@ window.onkeypress = function initializeGame (event) {
         //GENERATE GUESS COUNTER BASED ON THE LENGTH OF THE WORD - THIS WILL BE AN ARRAY 
        // DETERMINE NUMBER OF GUESSES 
        // POPULATE GUESS COUNTER ARRAY WITH GUESSES
-        guessCounter--;
+       if (!usedLetters.includes(String.fromCharCode (event.charCode)) && (!guessedWord.includes(String.fromCharCode (event.charCode)))) { 
+            guessCounter--;
+       } 
+
+
+    //    if (true && (false)) { 
+    //     guessCounter--;
+//    } 
+
         // ASK TA WHEHN/WHY TO USE THIS. AND WHY IT IS INCLUDED IN THIS EXAMPLE
         console.log("guessCounter is" + guessCounter);  
         //LOGS STRING TO CONSOLE FOR CHECKING
         console.log (String.fromCharCode (event.charCode));
         // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORD
-        // MISSED LETTERS UPDATE USED LETTER ARRAY 
-        if (!secretWord.includes(String.fromCharCode (event.charCode))) {
-            
+        // MISSED LETTERS UPDATE USED LETTER ARRAY
+
+        if (!secretWord.includes(String.fromCharCode (event.charCode)) && (!usedLetters.includes(String.fromCharCode (event.charCode)))) {
             usedLetters.push(String.fromCharCode (event.charCode));
         }
 
@@ -64,12 +72,8 @@ window.onkeypress = function initializeGame (event) {
             if (secretWord[i] === String.fromCharCode (event.charCode)) {
                 guessedWord[i] = String.fromCharCode (event.charCode);
             } 
-
-
-            
-
         }
-        // WIN OR LOSE SCENARIOS (TWO SEPARATE FUNCTIONS)
+        // WIN OR LOSE SCENARIOS 
         console.log (secretWord);
         console.log (guessedWord);
             // IF THE SECRET WORD IS FILLED IN COMPLETELY  
