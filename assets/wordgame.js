@@ -42,25 +42,16 @@ window.onkeypress = function initializeGame (event) {
         }
     }
     else {
-        //GENERATE GUESS COUNTER BASED ON THE LENGTH OF THE WORD - THIS WILL BE AN ARRAY 
-       // DETERMINE NUMBER OF GUESSES 
-       // POPULATE GUESS COUNTER ARRAY WITH GUESSES
+       // DECREMENT GUESS CONTER IF THE CHOSEN LETTER DOES NOT EXISTS IN USED LETTERS AND/OR GUESSED WORD
        if (!usedLetters.includes(String.fromCharCode (event.charCode)) && (!guessedWord.includes(String.fromCharCode (event.charCode)))) { 
             guessCounter--;
        } 
 
-
-    //    if (true && (false)) { 
-    //     guessCounter--;
-//    } 
-
-        // ASK TA WHEHN/WHY TO USE THIS. AND WHY IT IS INCLUDED IN THIS EXAMPLE
         console.log("guessCounter is" + guessCounter);  
         //LOGS STRING TO CONSOLE FOR CHECKING
         console.log (String.fromCharCode (event.charCode));
-        // LOOP THROUGH THE CHARACTERS IN THE SECRET WORD STARTING AT INDEX 0 FOR THE LENGTH OF THE WORD
-        // MISSED LETTERS UPDATE USED LETTER ARRAY
 
+        // CHECK IF THE SECRET WORD OR USED LETTERS CONTAINS THE LETTER 
         if (!secretWord.includes(String.fromCharCode (event.charCode)) && (!usedLetters.includes(String.fromCharCode (event.charCode)))) {
             usedLetters.push(String.fromCharCode (event.charCode));
         }
@@ -108,13 +99,4 @@ window.onkeypress = function initializeGame (event) {
     wrongLetters.innerHTML=usedLetters;
     totalWins.innerHTML=winCounter;
     
-
-    //LOGS STRING TO CONSOLE FOR CHECKING
-    // console.log (String.fromCharCode (event.charCode));
-
-
-    // RESET GAME
-    // CLEAR SECRET WORD ARRAY
-    // CLEAR GUESS COUNTER ARRAY 
-    // CLEAR USED LETTERS ARRAy
 }
